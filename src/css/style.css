@@ -1,0 +1,128 @@
+@font-face{
+    font-family:montserratregular;
+    src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+@font-face{
+    font-family:montserratbold;
+    src: url("../fonts/Montserrat-Bold.ttf");
+}
+
+@media (min-width: 576px) {
+    .w-15{
+        width: 25vw;
+    }
+}
+
+@media (min-width: 768px) {
+    .w-15{
+        width: 17vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .w-15{
+        width: 15vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    .w-15{
+        width: 10vw;
+    }
+}
+
+@keyframes slidein{
+    from{
+        left: -250px;
+    }
+    to{
+        left:0
+    }
+}
+
+.alturamax{
+    height: 100vh;
+}
+
+.menu-mobile{
+    z-index: 100;
+    animation: slidein 0.5s forwards;
+}
+
+.alturatabela{
+    height: 500px;
+    overflow: auto;
+}
+
+.alturalista{
+    height: 350px;
+    overflow: auto;
+}
+
+.listaMercadoria{
+    z-index: 10;
+}
+
+.bg-blue{
+    background-color: #2d98da;
+}
+
+.bg-darkblue{
+    background-color: #2885BF;
+}
+
+.bg-darkdarkblue{
+    background-color: #2374A6;
+}
+
+.bg-grey{
+    background-color: #6E6D7A;
+    height: 2px;
+    opacity: 0.2;
+}
+
+a:hover{
+    color:#ffffff;
+    text-decoration:none;
+    background-color: #2374A6;
+}
+
+a{
+    color:white;
+    font-family: montserratregular;
+}
+
+h2{
+    font-family: montserratbold;
+    color: white;
+}
+
+.bold{
+    font-family:montserratbold;
+    font-size: 1em;
+}
+.hover-mercadoria:hover{
+    background-color: #B8B9BA;
+}
+
+.porcima{
+    z-index: 150;
+}
+
+.porbaixo{
+    z-index: 10;
+}
+
+.regular{
+    font-family: montserrat;
+}
+
+.centralizar{
+    margin:0 auto;
+    margin-top:20vh;
+}
+
+.centralizar-vertical{
+    margin:0 auto;
+}

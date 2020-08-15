@@ -22,7 +22,6 @@ export default class Login extends React.Component {
         const json = await result.json();
         if(json.success){
             sessionStorage.setItem('token',json.token);
-            window.location.href = "baudosplasticospdv.herokuapp.com/dashboard/notas";
         }else{
             const erroSpan = document.querySelector("#erro");
             erroSpan.textContent =  json.message;

@@ -11,7 +11,7 @@ export default class Login extends React.Component {
         e.preventDefault();
         const usuario = document.querySelector('#usuario').value;
         const senha = document.querySelector('#senha').value;
-        const result = await fetch('http://bdpapiserver-com.umbler.net/login',{
+        const result = await fetch('http://baudosplasticospdv.herokuapp.com/',{
             method:"post",
             headers:{
                 "Access-Control-Allow-Origin": "*",
@@ -22,6 +22,7 @@ export default class Login extends React.Component {
         const json = await result.json();
         if(json.success){
             sessionStorage.setItem('token',json.token);
+            window.location.reload()
         }else{
             const erroSpan = document.querySelector("#erro");
             erroSpan.textContent =  json.message;

@@ -37,9 +37,9 @@ export default class App extends React.Component {
                     </div>
                     <Router>
                         <Switch>
-                            <Route path="baudosplasticospdv.herokuapp.com/dashboard/mercadorias"><Mercadorias /></Route>
-                            <Route path="baudosplasticospdv.herokuapp.com/dashboard/notas"><Notas /></Route>
-                            <Route path="baudosplasticospdv.herokuapp.com/dashboard/relatorios"><Relatorios /></Route>
+                            <Route path="http://baudosplasticospdv.herokuapp.com/dashboard/mercadorias"><Mercadorias /></Route>
+                            <Route path="http://baudosplasticospdv.herokuapp.com/dashboard/notas"><Notas /></Route>
+                            <Route path="http://baudosplasticospdv.herokuapp.com/dashboard/relatorios"><Relatorios /></Route>
                         </Switch>
                     </Router>
                 </div>

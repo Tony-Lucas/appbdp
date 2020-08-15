@@ -4,7 +4,7 @@ export default props =>
 
     <div className="col">
         <div className="row">
-            <div className="col text-white bg-blue d-sm-none d-md-block d-lg-block pt-2 pb-2">
+            <div className="col text-white d-none bg-blue d-xs-none d-sm-none d-md-block d-lg-block pt-2 pb-2">
                 <div className="row">
                     <div className="col col-xl-2 col-lg-2 col-md-3">
                         <h3>asdasd</h3>
@@ -19,10 +19,10 @@ export default props =>
                     </div>
                 </div>
             </div>
-            <div className="col text-white bg-blue d-sm-block d-md-none d-lg-none pt-2 pb-2 text-right">
+            <div className="col text-white bg-blue d-block d-sm-block d-md-none d-lg-none pt-2 pb-2 text-right">
                 <a className="btn border-0" onClick={props.slidein}><img src={iconMenu} alt="" width="35"/></a>
             </div>
-            <div className="col w-50 alturamax porcima d-sm-none d-md-none d-lg-none position-absolute bg-darkblue menu-mobile" id="menu-mobile">
+            <div className="col w-75 alturamax porcima d-none d-sm-none d-md-none d-lg-none position-absolute bg-darkblue menu-mobile" id="menu-mobile">
                 <a href="/dashboard/mercadorias" className="d-block p-3 mt-3">Mercadorias</a>
                 <a href="/dashboard/notas" className="d-block p-3 mt-3">Vendas</a>
                 <a href="/dashboard/relatorios" className="d-block p-3 mt-3">Relatórios</a>

@@ -7,7 +7,7 @@ export default props =>
                 <div className="col col-lg-8 centralizar-vertical">
                     <div className="row mt-5 mb-4">
                         <div className="col text-center">
-                            <h2 className=" text-dark d-inline">Detalhe Nota</h2>
+                            <h3 className=" text-dark d-inline">Detalhe Nota</h3>
                         </div>
                     </div>
                     <div className="row mt-5 mb-4">

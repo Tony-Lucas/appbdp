@@ -28,7 +28,7 @@ export default class Notas extends React.Component {
         this.visualizaNota = this.visualizaNota.bind(this);
         this.geraPDF = this.geraPDF.bind(this);
         this.buscaNotaData = this.buscaNotaData.bind(this);
-        this.maisDez = this.maisDez.bind(this)
+        this.maisDez = this.maisDez.bind(this);
     }
 
     changeStatusToOne() {

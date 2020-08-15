@@ -177,25 +177,25 @@ export default class Relatorios extends React.Component {
             <div>
                 <div className="row">
                     <div className="col  centralizar-vertical ">
-                        <h2 className="text-dark text-center mt-5 mb-4">Resumo Hoje</h2>
+                        <h3 className="text-dark text-center mt-5 mb-4">Resumo Hoje</h3>
                     </div>
                 </div>
                 <div className="row mb-4">
                     <div className="col col-xl-8 col-sm-12 col-md-10 centralizar-vertical p-3">
                         <div className="row">
-                            <div className="col col-xl-2 col-md-3 col-sm-8 bg-primary text-white centralizar-vertical p-3 text-center">
+                            <div className="col-8 col-xl-2 col-md-3 col-sm-8 bg-primary text-white centralizar-vertical p-3 text-center rounded">
                                 <h5 className="p-3">Notas</h5>
                                 <span className="p-3 bold">{this.state.vendas}</span>
                             </div>
-                            <div className="col col-xl-2 col-md-3 col-sm-8 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-warning text-white centralizar-vertical p-3 text-center">
+                            <div className="col-8 col-xl-2 col-md-3 col-sm-8 mt-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-warning text-white centralizar-vertical p-3 text-center rounded">
                                 <h5 className="p-3">Total</h5>
                                 <span className="p-2 bold">R$ {parseFloat(this.state.total).toFixed(2)}</span>
                             </div>
-                            <div className="col col-xl-2 col-md-3 col-sm-8 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-info text-white centralizar-vertical p-3 text-center">
+                            <div className="col-8 col-xl-2 col-md-3 col-sm-8 mt-sm-4 mt-3 mt-lg-0 mt-xl-0 mt-md-0 bg-info text-white centralizar-vertical p-3 text-center rounded">
                                 <h5 className="p-3">Descontos</h5>
                                 <span className="p-2 bold">R$ {parseFloat(this.state.desconto).toFixed(2)}</span>
                             </div>
-                            <div className="col col-xl-2 col-md-3 col-sm-8 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-success text-white centralizar-vertical p-3 text-center">
+                            <div className="col-8 col-xl-2 col-md-3 col-sm-8 mt-sm-4 mt-3 mt-lg-0 mt-xl-0 mt-md-0 bg-success text-white centralizar-vertical p-3 text-center rounded">
                                 <h5 className="p-3">Lucro</h5>
                                 <span className="p-3 bold">R$ {parseFloat(this.state.lucro).toFixed(2)}</span>
                             </div>
@@ -203,8 +203,8 @@ export default class Relatorios extends React.Component {
                     </div>
                 </div>
                 <hr />
-                <h2 className="text-center text-dark mb-5 mt-5">Buscar por data</h2>
-                <div className="row mt-3">
+                <h3 className="text-center text-dark mb-5 mt-5">Buscar por data</h3>
+                <div className="row mt-3 mb-5">
                     <div className="col col-xl-4 col-lg-10 col-md-10 col-sm-12 centralizar-vertical">
                         <div className="row">
                             <div className="col">
@@ -232,24 +232,24 @@ export default class Relatorios extends React.Component {
                 </div>
                 <div className="row d-none" id="relatorioData">
                     <div className="col col-xl-9 col-sm-12 col-md-12 centralizar-vertical">
-                        <div className="row mt-5">
-                            <div className="col col-xl-2 col-md-3 col-sm-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-primary text-white centralizar-vertical rounded p-3">
+                        <div className="row mt-3 mt-sm-3 mt-md-4 mt-lg-4">
+                            <div className="col-7 col-xl-2 col-md-3 col-sm-3  mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-primary text-white centralizar-vertical rounded p-3">
                                 <span className="">Vendas: {this.state.vendasData}</span>
                             </div>
-                            <div className="col col-xl-2 col-md-3 col-sm-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-warning text-white centralizar-vertical rounded p-3">
+                            <div className="col-7 col-xl-2 col-md-3 col-sm-3 mt-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-warning text-white centralizar-vertical rounded p-3">
                                 <span className="">Total: {this.state.totalData.toFixed(2)}</span>
                             </div>
-                            <div className="col col-xl-2 col-md-3 col-sm-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-info text-white centralizar-vertical rounded p-3">
+                            <div className="col-7 col-xl-2 col-md-3 col-sm-3 mt-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-info text-white centralizar-vertical rounded p-3">
                                 <span className="">Desconto: {this.state.descontoData}</span>
                             </div>
-                            <div className="col col-xl-2 col-md-3 col-sm-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-success text-white centralizar-vertical rounded p-3">
+                            <div className="col-7 col-xl-2 col-md-3 col-sm-3 mt-3 mt-sm-4 mt-lg-0 mt-xl-0 mt-md-0 bg-success text-white centralizar-vertical rounded p-3">
                                 <span className="">Lucro: {parseFloat(this.state.lucroData).toFixed(2)}</span>
                             </div>
                         </div>
-                        <div className="row mt-4 mb-5">
+                        <div className="row mt-5 mb-5">
                             <div className="col">
                                 <div className="row">
-                                    <div className="col col-xl-1 col-lg-1 col-md-3 col-sm-4 centralizar-vertical">
+                                    <div className="col-8 col-xl-1 col-lg-1 col-md-3 col-sm-4 centralizar-vertical">
                                         <button className="btn btn-primary col" onClick={this.geraPdf}>PDF</button>
                                     </div>
                                 </div>

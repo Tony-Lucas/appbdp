@@ -6,11 +6,11 @@ export default props =>
             <div className="col col-xl-8 col-md-12 col-sm-12 col-lg-10 centralizar-vertical">
                 <div className="row">
                     <div className="col col-12 text-center mt-5 mb-5">
-                        <h2 className=" text-dark d-inline">Mercadorias Cadastradas</h2>
+                        <h3 className=" text-dark d-inline">Mercadorias Cadastradas</h3>
                     </div>
                     <div className="col">
                         <div className="row mt-3">
-                            <div className="col col-lg-5 col-xl-5 col-md-6 col-sm-10">
+                            <div className="col-8  col-lg-5 col-xl-5 col-md-6 col-sm-10">
                                 <input type="text" className="form-control" placeholder="Buscar mercadoria" id="inputMercadoria" onKeyUp={props.buscaMercadoria()} />
                             </div>
                             <div className="col">
@@ -19,34 +19,36 @@ export default props =>
                         </div>
                     </div>
                 </div>
-            
-                <table className="table ">
-                    <thead>
-                        <tr>
-                            <th scope="col">IMG</th>
-                            <th scope="col text-break">Nome da mercadoria</th>
-                            <th scope="col">Preço de compra</th>
-                            <th scope="col">Preço de venda</th>
-                            <th scope="col">Deletar/Alterar</th>
-                        </tr>
-                    </thead>
-                    <tbody className="regular">
-                        {props.mercadorias.map(mercadoria => {
-                            return (
-                                <tr>
-                                    <td><img src={"http://bdpapiserver-com.umbler.net/" + mercadoria.nomeImg} alt="" width="32" /></td>
-                                    <td>{mercadoria.nome}</td>
-                                    <td>{mercadoria.precoCompra.toString().replace('.', ',')}</td>
-                                    <td>{mercadoria.precoVenda.toString().replace('.', ',')}</td>
-                                    <td>
-                                        <button className="btn btn-warning col col-sm-12 col-lg-5 col-md-5" idmercadoria={mercadoria.id} nomeimg={mercadoria.nomeImg} onClick={props.alteraMercadoria()}>Alterar</button>
-                                        <button className="btn btn-danger col ml-xl-3 ml-md-2 mt-md-0 mt-sm-2 col-sm-12 col-lg-5 col-md-5" idmercadoria={mercadoria.id} nomeimg={mercadoria.nomeImg} onClick={props.deletaMercadoria()}>Deletar</button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+
+                <div className="col">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">IMG</th>
+                                <th scope="col text-break">Nome</th>
+                                <th scope="col">compra</th>
+                                <th scope="col">venda</th>
+                                <th scope="col">Opções</th>
+                            </tr>
+                        </thead>
+                        <tbody className="regular">
+                            {props.mercadorias.map(mercadoria => {
+                                return (
+                                    <tr>
+                                        <td><img src={"http://bdpapiserver-com.umbler.net/" + mercadoria.nomeImg} alt="" width="32" /></td>
+                                        <td>{mercadoria.nome}</td>
+                                        <td>{mercadoria.precoCompra.toString().replace('.', ',')}</td>
+                                        <td>{mercadoria.precoVenda.toString().replace('.', ',')}</td>
+                                        <td>
+                                            <button className="btn btn-warning col col-sm-12 col-lg-5 col-md-5" idmercadoria={mercadoria.id} nomeimg={mercadoria.nomeImg} onClick={props.alteraMercadoria()}>Alterar</button>
+                                            <button className="btn btn-danger col ml-xl-3 ml-md-2 mt-md-0 mt-sm-2 col-sm-12 col-lg-5 col-md-5 mt-3" idmercadoria={mercadoria.id} nomeimg={mercadoria.nomeImg} onClick={props.deletaMercadoria()}>Deletar</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div className="row mt-3 mb-5">

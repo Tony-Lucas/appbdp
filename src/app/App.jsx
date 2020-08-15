@@ -15,6 +15,7 @@ export default class App extends React.Component {
     slidein() {
         const menu = document.getElementById('menu-mobile');
         menu.classList.toggle('d-sm-none');
+        menu.classList.toggle('d-none');
     }
 
     logout() {

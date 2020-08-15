@@ -11,7 +11,7 @@ export default class Login extends React.Component {
         e.preventDefault();
         const usuario = document.querySelector('#usuario').value;
         const senha = document.querySelector('#senha').value;
-        const result = await fetch('http://baudosplasticospdv.herokuapp.com',{
+        const result = await fetch('https://bdpapiserver.com/login',{
             method:"post",
             headers:{
                 "Content-Type": "application/json"

@@ -11,10 +11,9 @@ export default class Login extends React.Component {
         e.preventDefault();
         const usuario = document.querySelector('#usuario').value;
         const senha = document.querySelector('#senha').value;
-        const result = await fetch('http://baudosplasticospdv.herokuapp.com/',{
+        const result = await fetch('http://baudosplasticospdv.herokuapp.com',{
             method:"post",
             headers:{
-                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             },
             body:JSON.stringify({usuario:usuario,senha:senha})

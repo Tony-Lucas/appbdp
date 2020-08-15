@@ -41,7 +41,7 @@ export default class Notas extends React.Component {
     }
 
     async componentDidMount() {
-        const result = await fetch('http://bdpapiserver-com.umbler.net/notas/limite/' + this.state.limite + "/" + this.state.pulos + "/" + sessionStorage.getItem('token'));
+        const result = await fetch('https://bdpapiserver.com/notas/limite/' + this.state.limite + "/" + this.state.pulos + "/" + sessionStorage.getItem('token'));
         const json = await result.json();
         console.log(json)
         if (json.success) {
@@ -61,7 +61,7 @@ export default class Notas extends React.Component {
     async buscaMercadoria(e) {
         const inputBusca = document.querySelector("#buscaMercadoria").value;
         if (inputBusca.length > 1) {
-            const result = await fetch('http://bdpapiserver-com.umbler.net/mercadoria/busca/' + inputBusca + '/' + sessionStorage.getItem('token'));
+            const result = await fetch('https://bdpapiserver.com/mercadoria/busca/' + inputBusca + '/' + sessionStorage.getItem('token'));
             const json = await result.json();
             if (json.success) {
                 this.setState({ mercadoria: json });
@@ -153,7 +153,7 @@ export default class Notas extends React.Component {
         const idMercadorias = []; // ids e quant mercadorias
         const cliente = document.getElementById("cliente").value;
         if (this.state.mercadoriasCarrinho.length > 0 && this.state.subtotal > 0) {
-            const result = await fetch('http://bdpapiserver-com.umbler.net/notas', {
+            const result = await fetch('https://bdpapiserver.com/notas', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -166,7 +166,7 @@ export default class Notas extends React.Component {
                 const objeto = { id: parseInt(this.state.mercadoriasCarrinho[i].id), quant: parseInt(this.state.mercadoriasCarrinho[i].quant), desconto: parseFloat(this.state.mercadoriasCarrinho[i].desconto) }
                 console.log(objeto.desconto)
                 idMercadorias.push(objeto);
-                const result = await fetch("http://bdpapiserver-com.umbler.net/vendas", {
+                const result = await fetch("https://bdpapiserver.com/vendas", {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -188,9 +188,9 @@ export default class Notas extends React.Component {
         imgTag.setAttribute("src", loadingSvg)
         imgTag.setAttribute("width", "24")
         btnPdf.appendChild(imgTag)
-        const resultVendas = await fetch("http://bdpapiserver-com.umbler.net/vendas/" + id + '/' + sessionStorage.getItem('token'));
+        const resultVendas = await fetch("https://bdpapiserver.com/vendas/" + id + '/' + sessionStorage.getItem('token'));
         const jsonVendas = await resultVendas.json();
-        const resultNota = await fetch("http://bdpapiserver-com.umbler.net/notas/" + id + '/' + sessionStorage.getItem('token'));
+        const resultNota = await fetch("https://bdpapiserver.com/notas/" + id + '/' + sessionStorage.getItem('token'));
         const jsonNota = await resultNota.json();
         const ano = jsonNota.notas.data.substring(0, 4)
         const mes = jsonNota.notas.data.substring(5, 7)
@@ -211,7 +211,7 @@ export default class Notas extends React.Component {
             <thead>`
 
             for (let i = 0; i < jsonVendas.vendas.length; i++) {
-                const resultMercadoria = await fetch("http://bdpapiserver-com.umbler.net/mercadoria/" + jsonVendas.vendas[i].id_mercadoria + "/" + sessionStorage.getItem('token'));
+                const resultMercadoria = await fetch("https://bdpapiserver.com/mercadoria/" + jsonVendas.vendas[i].id_mercadoria + "/" + sessionStorage.getItem('token'));
                 const jsonMercadoria = await resultMercadoria.json();
                 let tr = `
             <tr>
@@ -225,7 +225,7 @@ export default class Notas extends React.Component {
             }
 
             tabela += `</thead></table>`
-            const result = fetch("http://bdpapiserver-com.umbler.net/notas/pdf", {
+            const result = fetch("https://bdpapiserver.com/notas/pdf", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token: sessionStorage.getItem('token'), corpo: tabela })
@@ -234,7 +234,7 @@ export default class Notas extends React.Component {
             }).then(result => {
                 if (result.success) {
                     setTimeout(() => {
-                        window.open("http://bdpapiserver-com.umbler.net/pdfnota.pdf")
+                        window.open("https://bdpapiserver.com/pdfnota.pdf")
                         btnPdf.removeChild(btnPdf.childNodes[0]);
                         btnPdf.textContent = "PDF"
                     }, 1000)

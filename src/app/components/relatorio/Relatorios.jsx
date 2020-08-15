@@ -34,16 +34,16 @@ export default class Relatorios extends React.Component {
         }
 
         const dataformat = ano + '-' + mes + '-' + dia
-        const result = await fetch('http://bdpapiserver-com.umbler.net/notas/' + dataformat + '/' + dataformat + '/' + sessionStorage.getItem('token'));
+        const result = await fetch('https://bdpapiserver.com/notas/' + dataformat + '/' + dataformat + '/' + sessionStorage.getItem('token'));
         const resultJson = await result.json();
         let jsonVendas;
         if (resultJson.success) {
             for (let i = 0; i < resultJson.notas.length; i++) {
-                const resultVendas = await fetch("http://bdpapiserver-com.umbler.net/vendas/" + resultJson.notas[i].id + '/' + sessionStorage.getItem('token'))
+                const resultVendas = await fetch("https://bdpapiserver.com/vendas/" + resultJson.notas[i].id + '/' + sessionStorage.getItem('token'))
                 jsonVendas = await resultVendas.json();
                 for (let j = 0; j < jsonVendas.vendas.length; j++) {
                     console.log()
-                    const resultMercadoria = await fetch('http://bdpapiserver-com.umbler.net/mercadoria/' + jsonVendas.vendas[j].id_mercadoria + '/' + sessionStorage.getItem('token'));
+                    const resultMercadoria = await fetch('https://bdpapiserver.com/mercadoria/' + jsonVendas.vendas[j].id_mercadoria + '/' + sessionStorage.getItem('token'));
                     const mercadoriaJson = await resultMercadoria.json();
                     if (mercadoriaJson.mercadoria) {
                         this.setState({ lucro: this.state.lucro + ((parseFloat(mercadoriaJson.mercadoria.precoVenda) - parseFloat(mercadoriaJson.mercadoria.precoCompra)) * jsonVendas.vendas[j].quantidade - (jsonVendas.vendas[j].desconto)) })
@@ -68,7 +68,7 @@ export default class Relatorios extends React.Component {
 
         const datainicial = document.querySelector("#datainicial").value;
         const datafinal = document.querySelector("#datafinal").value;
-        const result = await fetch("http://bdpapiserver-com.umbler.net/notas/" + datainicial + "/" + datafinal + "/" + sessionStorage.getItem('token'));
+        const result = await fetch("https://bdpapiserver.com/notas/" + datainicial + "/" + datafinal + "/" + sessionStorage.getItem('token'));
         const json = await result.json();
         let totalData = 0, lucroData = 0, vendasData = 0, desconto = 0, mercadoriasVendidas = [];
         vendasData = json.notas.length;
@@ -78,11 +78,11 @@ export default class Relatorios extends React.Component {
         if (json.success) {
             for (let i = 0; i < json.notas.length; i++) {
                 load.classList.remove('d-none')
-                const resultVendas = await fetch("http://bdpapiserver-com.umbler.net/vendas/" + json.notas[i].id + '/' + sessionStorage.getItem('token'))
+                const resultVendas = await fetch("https://bdpapiserver.com/vendas/" + json.notas[i].id + '/' + sessionStorage.getItem('token'))
                 const jsonVendas = await resultVendas.json()
                 totalData += json.notas[i].total
                 for (let j = 0; j < jsonVendas.vendas.length; j++) {
-                    const resultMercadoria = await fetch("http://bdpapiserver-com.umbler.net/mercadoria/" + jsonVendas.vendas[j].id_mercadoria + '/' + sessionStorage.getItem('token'))
+                    const resultMercadoria = await fetch("https://bdpapiserver.com/mercadoria/" + jsonVendas.vendas[j].id_mercadoria + '/' + sessionStorage.getItem('token'))
                     const jsonMercadoria = await resultMercadoria.json();
                     lucroData += (parseFloat(jsonMercadoria.mercadoria.precoVenda) - parseFloat(jsonMercadoria.mercadoria.precoCompra)) * jsonVendas.vendas[j].quantidade
                     desconto += jsonVendas.vendas[j].desconto
@@ -152,7 +152,7 @@ export default class Relatorios extends React.Component {
             })
             const subtotalTag = `<h5 style="text-align: center;margin-top:25px;margin-bottom:25px;">Subtotal: R$ <strong>${subtotal.toFixed(2)}</strong></h5>`
             tabela += `</thead></table>${subtotalTag}`
-            const result = fetch("http://bdpapiserver-com.umbler.net/notas/pdf", {
+            const result = fetch("https://bdpapiserver.com/notas/pdf", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token: sessionStorage.getItem('token'), corpo: tabela })
@@ -161,7 +161,7 @@ export default class Relatorios extends React.Component {
             }).then(result => {
                 if (result.success) {
                     setTimeout(() => {
-                        window.open("http://bdpapiserver-com.umbler.net/pdfnota.pdf")
+                        window.open("https://bdpapiserver.com/pdfnota.pdf")
                         btnPdf.removeChild(btnPdf.childNodes[0]);
                         btnPdf.textContent = "PDF"
                     }, 3000)

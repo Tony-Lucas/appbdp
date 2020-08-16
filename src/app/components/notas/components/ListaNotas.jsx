@@ -33,31 +33,34 @@ export default props =>
                         <button className="btn btn-success mb-4" onClick={props.changeStatusToZero}>Nova</button>
                     </div>
                 </div>
-                <table className="table" id="tabela">
-                    <thead>
-                        <tr>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Data</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {props.notas.map(nota => {
-                            return (
-                                <tr>
-                                    <td>{nota.cliente}</td>
-                                    <td>{nota.data}</td>
-                                    <td>{nota.total}</td>
-                                    <td>
-                                        <button className="btn btn-primary col-12 col-sm-12 col-md-5 col-lg-3 col-xl-3" idnota={nota.id} onClick={props.visualizaNota()}>Detalhes</button>
-                                        <button href="/dashboard/notas" idnota={nota.id} className="btn btn-primary text-white mt-3 mt-sm-3 mt-md-0 mt-lg-0 ml-md-2 mt-xl-0 ml-xl-4 col-12 col-sm-12 col-md-5 col-lg-3 col-xl-3" onClick={props.geraPDF()}>PDF</button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                <div className="col alturatabela">
+                    <table className="table" id="tabela">
+                        <thead>
+                            <tr>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {props.notas.map(nota => {
+                                return (
+                                    <tr>
+                                        <td>{nota.cliente}</td>
+                                        <td>{nota.data}</td>
+                                        <td>{nota.total}</td>
+                                        <td>
+                                            <button className="btn btn-primary col-12 col-sm-12 col-md-5 col-lg-3 col-xl-3" idnota={nota.id} onClick={props.visualizaNota()}>Detalhes</button>
+                                            <button href="/dashboard/notas" idnota={nota.id} className="btn btn-primary text-white mt-3 mt-sm-3 mt-md-0 mt-lg-0 ml-md-2 mt-xl-0 ml-xl-4 col-12 col-sm-12 col-md-5 col-lg-3 col-xl-3" onClick={props.geraPDF()}>PDF</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
         <div className="row mt-3 mb-5">

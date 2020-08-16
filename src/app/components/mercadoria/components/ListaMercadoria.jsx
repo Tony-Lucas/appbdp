@@ -20,7 +20,7 @@ export default props =>
                     </div>
                 </div>
 
-                <div className="col">
+                <div className="col alturatabela">
                     <table className="table">
                         <thead>
                             <tr>

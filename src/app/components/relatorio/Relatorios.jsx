@@ -84,14 +84,16 @@ export default class Relatorios extends React.Component {
                 for (let j = 0; j < jsonVendas.vendas.length; j++) {
                     const resultMercadoria = await fetch("https://bdpapiserver.com/mercadoria/" + jsonVendas.vendas[j].id_mercadoria + '/' + sessionStorage.getItem('token'))
                     const jsonMercadoria = await resultMercadoria.json();
-                    lucroData += (parseFloat(jsonMercadoria.mercadoria.precoVenda) - parseFloat(jsonMercadoria.mercadoria.precoCompra)) * jsonVendas.vendas[j].quantidade
-                    desconto += jsonVendas.vendas[j].desconto
-                    let objeto = {
-                        id: jsonMercadoria.mercadoria.id, nome: jsonMercadoria.mercadoria.nome, precoVenda: jsonMercadoria.mercadoria.precoVenda, precoCompra: jsonMercadoria.mercadoria.precoCompra,
-                        quantidade: jsonVendas.vendas[j].quantidade, lucro: (parseFloat(jsonMercadoria.mercadoria.precoVenda) - parseFloat(jsonMercadoria.mercadoria.precoCompra)) * jsonVendas.vendas[j].quantidade,
-                        desconto: jsonVendas.vendas[j].desconto
+                    if (jsonMercadoria.mercadoria) {
+                        lucroData += (parseFloat(jsonMercadoria.mercadoria.precoVenda) - parseFloat(jsonMercadoria.mercadoria.precoCompra)) * jsonVendas.vendas[j].quantidade
+                        desconto += jsonVendas.vendas[j].desconto
+                        let objeto = {
+                            id: jsonMercadoria.mercadoria.id, nome: jsonMercadoria.mercadoria.nome, precoVenda: jsonMercadoria.mercadoria.precoVenda, precoCompra: jsonMercadoria.mercadoria.precoCompra,
+                            quantidade: jsonVendas.vendas[j].quantidade, lucro: (parseFloat(jsonMercadoria.mercadoria.precoVenda) - parseFloat(jsonMercadoria.mercadoria.precoCompra)) * jsonVendas.vendas[j].quantidade,
+                            desconto: jsonVendas.vendas[j].desconto
+                        }
+                        mercadoriasVendidas.push(objeto)
                     }
-                    mercadoriasVendidas.push(objeto)
                 }
             }
             this.setState({ totalData: totalData, vendasData: vendasData, lucroData: lucroData, descontoData: desconto.toFixed(2), mercadoriasVendidas: this.state.mercadoriasVendidas.concat(mercadoriasVendidas) });

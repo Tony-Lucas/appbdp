@@ -174,6 +174,7 @@ export default class Notas extends React.Component {
                     body: JSON.stringify({ notaId: nota.id, id_mercadoria: idMercadorias[i].id, quantidade: idMercadorias[i].quant, token: sessionStorage.getItem('token'), desconto: idMercadorias[i].desconto })
                 })
             }
+            window.location.reload();
 
         } else {
             console.log('carrinho vazio')

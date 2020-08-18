@@ -60,7 +60,7 @@ export default props =>
                     </div>
                 </div>
             </div>
-            <div className="col col-xl-9 col-lg-10 col-md-10 col-sm-12 centralizar-vertical">
+            <div className="col col-xl-9 col-lg-10 col-md-10 col-sm-12 centralizar-vertical alturatabela">
                 <h3 className="text-center text-dark mt-5">Mercadorias na nota</h3>
                 <table className="table mt-5">
                     <thead>

@@ -85,12 +85,11 @@ export default class Component extends React.Component {
     }
 
     async maisDez() {
-        const limite = this.state.mercadorias.length + 10;
         const pulos = this.state.pulos + 10;
-        const result = await fetch("https://bdpapiserver.com/mercadoria/limite/" + limite + "/" + pulos + "/" + sessionStorage.getItem('token'));
+        const result = await fetch("https://bdpapiserver.com/mercadoria/limite/" + this.state.limite + "/" + pulos + "/" + sessionStorage.getItem('token'));
         const json = await result.json();
         this.setState(state => {
-            return {mercadorias: this.state.mercadorias.concat(json.mercadoria[0]),pulos: pulos ,limite: limite}
+            return {mercadorias: this.state.mercadorias.concat(json.mercadoria[0]),pulos: pulos}
         })
     }
 

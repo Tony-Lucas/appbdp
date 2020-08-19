@@ -225,7 +225,11 @@ export default class Notas extends React.Component {
                 tabela += tr;
             }
 
-            tabela += `</thead></table>`
+            tabela += `
+            </thead>
+            </table>
+            <h5 style="margin-top:30px;text-align:center">Subtotal: ${jsonNota.notas.total}</h5>
+            `
             const result = fetch("https://bdpapiserver.com/notas/pdf", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -238,7 +242,7 @@ export default class Notas extends React.Component {
                         window.open("https://bdpapiserver.com/pdfnota.pdf")
                         btnPdf.removeChild(btnPdf.childNodes[0]);
                         btnPdf.textContent = "PDF"
-                    }, 1000)
+                    }, 3000)
                 }
             })
 

@@ -89,7 +89,9 @@ export default class Component extends React.Component {
         const pulos = this.state.pulos + 10;
         const result = await fetch("https://bdpapiserver.com/mercadoria/limite/" + limite + "/" + pulos + "/" + sessionStorage.getItem('token'));
         const json = await result.json();
-        this.setState({mercadorias: this.state.mercadorias.concat(json.mercadoria[0]),pulos: pulos ,limite: limite})
+        this.setState(state => {
+            return {mercadorias: this.state.mercadorias.concat(json.mercadoria[0]),pulos: pulos ,limite: limite}
+        })
     }
 
     async buscaMercadoria(e) {
